@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson_4_DataLayer", "Lesso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson_5_Adapter", "Lesson_5_Adapter\Lesson_5_Adapter.csproj", "{36F2474F-F329-482B-8A2C-C122620B57A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson_3_HW", "Lesson_3_HW\Lesson_3_HW.csproj", "{F94A3EDC-2439-44CA-9967-F9B712A820ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{36F2474F-F329-482B-8A2C-C122620B57A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36F2474F-F329-482B-8A2C-C122620B57A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36F2474F-F329-482B-8A2C-C122620B57A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F94A3EDC-2439-44CA-9967-F9B712A820ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94A3EDC-2439-44CA-9967-F9B712A820ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94A3EDC-2439-44CA-9967-F9B712A820ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94A3EDC-2439-44CA-9967-F9B712A820ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
