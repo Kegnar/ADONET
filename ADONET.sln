@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson_2_HW", "Lesson_2_HW\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson_3_CommandBuilder", "Lesson_3_CommandBuilder\Lesson_3_CommandBuilder.csproj", "{C1F3850E-15F2-449C-8C6B-6E823159290E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson_4_DataLayer", "Lesson_4_DataLayer\Lesson_4_DataLayer.csproj", "{FD16D5A1-9BB6-4C5B-A8A2-516428E02F25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson_5_Adapter", "Lesson_5_Adapter\Lesson_5_Adapter.csproj", "{36F2474F-F329-482B-8A2C-C122620B57A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{C1F3850E-15F2-449C-8C6B-6E823159290E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1F3850E-15F2-449C-8C6B-6E823159290E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1F3850E-15F2-449C-8C6B-6E823159290E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD16D5A1-9BB6-4C5B-A8A2-516428E02F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD16D5A1-9BB6-4C5B-A8A2-516428E02F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD16D5A1-9BB6-4C5B-A8A2-516428E02F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD16D5A1-9BB6-4C5B-A8A2-516428E02F25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36F2474F-F329-482B-8A2C-C122620B57A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F2474F-F329-482B-8A2C-C122620B57A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F2474F-F329-482B-8A2C-C122620B57A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F2474F-F329-482B-8A2C-C122620B57A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

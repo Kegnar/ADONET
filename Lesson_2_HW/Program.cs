@@ -3,7 +3,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
-//BUG: починить работу вызова sp_alter_quantity
+
 namespace Lesson_2_HW
 {
     internal class Program
@@ -56,12 +56,12 @@ namespace Lesson_2_HW
                      end try
                  begin catch
                  print N'Ошибка'
+                 rollback
                  end catch
                  go
                 -----------------
                 */
                 string modifyStock = "sp_alter_quantity";
-                string qweryStock = "select * from Goods where id=@id";
                 Console.Write("Введи id товара:");
                 int id = Convert.ToInt32(Console.ReadLine());
                 Console.Write("Введи количество:");
@@ -74,8 +74,9 @@ namespace Lesson_2_HW
                 cmd2.ExecuteNonQuery();
                 
                 // прочитаем содержимое
-                SqlCommand qweryStock = new SqlCommand(qweryStock, connection);
-                SqlParameter goodId = new SqlParameter("@id", id);
+                string qweryStockString = "select * from goods where id=@good_id";
+                SqlCommand qweryStock = new SqlCommand(qweryStockString, connection);
+                SqlParameter goodId = new SqlParameter("@good_id", id);
                 qweryStock.Parameters.Add(goodId);
                 qweryStock.CommandType = CommandType.Text;
                 
@@ -88,6 +89,7 @@ namespace Lesson_2_HW
                 {
                     Console.WriteLine($"{stock.GetValue(1)}\t{stock.GetValue(3)}\t{stock.GetValue(4)}");
                 }
+                stock.Close();
                 
                 /* товары по категории
                  ------
@@ -103,21 +105,22 @@ namespace Lesson_2_HW
                         end try
                         begin catch
                             print N'Ошибка'
+                            rollback
                         end catch;
                     go
                     -------
                 */
                 string spGoodsCategory = "sp_get_goods_by_category";
-                Console.Write("Введи категорию товара:");
-                
+                Console.Write("Введи id категории:");
+                int idCategory = Convert.ToInt32(Console.ReadLine());
                 SqlCommand qweryCategory = new SqlCommand(spGoodsCategory, connection);
-                qweryCategory.CommandType = CommandType.StoredProcedure;
-                SqlParameter categoryId = new SqlParameter("@id_category", id);
+                SqlParameter categoryId = new SqlParameter("@id_category", idCategory);
                 qweryCategory.Parameters.Add(categoryId);
-                qweryCategory.CommandType = CommandType.Text;
+                qweryCategory.CommandType = CommandType.StoredProcedure;
+              
                 
                 SqlDataReader category = qweryCategory.ExecuteReader();
-                if (stock.HasRows)
+                if (category.HasRows)
                 {
                     Console.WriteLine($"{category.GetName(1)}\t{category.GetName(3)}\t{category.GetName(4)}");
                 }
@@ -125,7 +128,7 @@ namespace Lesson_2_HW
                 {
                     Console.WriteLine($"{category.GetValue(1)}\t{category.GetValue(3)}\t{category.GetValue(4)}");
                 }
-                
+                category.Close();
             }
         }
     }
