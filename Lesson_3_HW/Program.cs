@@ -80,20 +80,18 @@ namespace Lesson_3_HW
                 string qweryStockString = "select * from goods where id=@good_id";
                 SqlCommand qweryStock = new SqlCommand(qweryStockString, connection);
                 SqlParameter goodId = new SqlParameter("@good_id", id);
-             
+                qweryStock.Parameters.Add(goodId);
                 qweryStock.CommandType = CommandType.Text;
-                SqlCommandBuilder.DeriveParameters(qweryStock);
-                qweryStock.Parameters[1].Value = id;
 
                 SqlDataReader stock = qweryStock.ExecuteReader();
                 if (stock.HasRows)
                 {
-                    Console.WriteLine($"{stock.GetName(1)}\t{stock.GetName(3)}\t{stock.GetName(4)}");
+                    Console.WriteLine($"{stock.GetName(1),-30}{stock.GetName(3),-7}\t{stock.GetName(4)}");
                 }
 
                 while (stock.Read())
                 {
-                    Console.WriteLine($"{stock.GetValue(1)}\t{stock.GetValue(3)}\t{stock.GetValue(4)}");
+                    Console.WriteLine($"{stock.GetValue(1),-30}{stock.GetValue(3),-7}\t{stock.GetValue(4)}");
                 }
 
                 stock.Close();
@@ -121,20 +119,22 @@ namespace Lesson_3_HW
                 Console.Write("Введи id категории:");
                 int idCategory = Convert.ToInt32(Console.ReadLine());
                 SqlCommand qweryCategory = new SqlCommand(spGoodsCategory, connection);
-                SqlParameter categoryId = new SqlParameter("@id_category", idCategory);
-                qweryCategory.Parameters.Add(categoryId);
                 qweryCategory.CommandType = CommandType.StoredProcedure;
+                SqlCommandBuilder.DeriveParameters(qweryCategory);
+                qweryCategory.Parameters[1].Value = idCategory;
+                
+                
 
 
                 SqlDataReader category = qweryCategory.ExecuteReader();
                 if (category.HasRows)
                 {
-                    Console.WriteLine($"{category.GetName(1)}\t{category.GetName(3)}\t{category.GetName(4)}");
+                    Console.WriteLine($"{category.GetName(1),-30}{category.GetName(3),-7}{category.GetName(4)}");
                 }
 
                 while (category.Read())
                 {
-                    Console.WriteLine($"{category.GetValue(1)}\t{category.GetValue(3)}\t{category.GetValue(4)}");
+                    Console.WriteLine($"{category.GetValue(1),-30}{category.GetValue(3),-7}{category.GetValue(4)}");
                 }
 
                 category.Close();
