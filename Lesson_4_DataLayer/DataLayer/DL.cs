@@ -82,6 +82,33 @@ namespace Lesson_4_DataLayer.DataLayer
                     return customers;
                 }
             }
+
+            public static void UpdateCustomer(int customerId, CustomerModel customerModel)
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        string customerUpdate = "sp_update_customer";
+                        SqlCommand updateCustomer = new SqlCommand(customerUpdate, connection);
+                        updateCustomer.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(updateCustomer);
+                        updateCustomer.Parameters[1].Value = customerModel.Id;
+                        updateCustomer.Parameters[2].Value = customerModel.FirstName;
+                        updateCustomer.Parameters[3].Value = customerModel.LastName;
+                        updateCustomer.Parameters[4].Value = customerModel.DateOfBirth;
+                        updateCustomer.ExecuteNonQuery();
+                        
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        throw;
+                    }
+                    
+                }
+            }
         }
     }
 }

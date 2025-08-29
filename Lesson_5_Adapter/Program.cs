@@ -41,7 +41,49 @@ namespace Lesson_5_Adapter
                 {
                     Console.WriteLine($"{dr[0],5} - {dr[1],20} - {Convert.ToDateTime(dr[3]).ToShortDateString(),15}");
                 }
-
+                
+                //add customer
+                // string srcTableName = "Customers";
+                // SqlDataAdapter customerAdapter = new SqlDataAdapter("select * from Customers", connection);
+                // SqlCommandBuilder customerBuilder = new SqlCommandBuilder(customerAdapter);
+                // DataSet customers = new DataSet();
+                // customerAdapter.Fill(customers, srcTableName);
+                // DataTable customerTable = customers.Tables[srcTableName];
+                // DataRow newCustomer = customerTable.NewRow();
+                // newCustomer[1] = "Биба";
+                // newCustomer[2] = "Бобов";
+                // newCustomer[3] = DateTime.Now.ToShortDateString();
+                // customerTable.Rows.Add(newCustomer);
+                //
+                // // отсюда начинается апдейт базы
+                //
+                // customerAdapter.Update(customers, srcTableName);
+                // customerTable.Clear();
+                // customerAdapter.Fill(customers, srcTableName);
+                //
+// delete
+                string srcTableName = "Customers";
+                SqlDataAdapter customerAdapter = new SqlDataAdapter("select * from Customers", connection);
+                SqlCommandBuilder customerBuilder = new SqlCommandBuilder(customerAdapter);
+                DataSet customers = new DataSet();
+                customerAdapter.Fill(customers, srcTableName);
+                DataTable customerTable = customers.Tables[srcTableName];
+                customerTable.PrimaryKey = new DataColumn[] { customerTable.Columns["id"] };
+                DataRow deleteRow = customerTable.Rows.Find(5);
+                if (deleteRow != null)
+                {
+                    deleteRow.Delete();
+                    Console.WriteLine("Row deleted");
+                }
+                else
+                {
+                    Console.WriteLine("Row not found");
+                }
+                // удоли!
+                customerAdapter.Update(customers, srcTableName);
+                customerTable.Clear();
+                customerAdapter.Fill(customers, srcTableName);
+                
 
             }
         }

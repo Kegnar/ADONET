@@ -13,7 +13,13 @@ namespace Lesson_4_DataLayer
             {
                 CustomerModel customer1 = DL.Customer.GetCustomerById(1);
                 CustomerModel customer2 = DL.Customer.GetCustomerById(2);
-                Console.WriteLine(customer1);
+                // обновление информации о пользователе
+                CustomerModel customer3 = DL.Customer.GetCustomerById(3);
+                customer3.FirstName = "Вася";
+                customer3.LastName = "Обломов";
+                
+                
+                
                 List<CustomerModel> customers = DL.Customer.GetAllCustomers();
                 foreach (CustomerModel customer in customers)
                 {
