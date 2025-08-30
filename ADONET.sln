@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson_7_Linq_To_XML", "Les
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson_7_Linq_To_SQL", "Lesson_7_Linq_To_SQL\Lesson_7_Linq_To_SQL.csproj", "{8D98C0D8-19A6-4F1A-A8DB-93B126760A2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson_8_EntityFW_DBFirst", "Lesson_8_EntityFW_DBFirst\Lesson_8_EntityFW_DBFirst.csproj", "{C58D07DF-A9AB-4B98-BA96-C2EDF1256F6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,5 +92,9 @@ Global
 		{8D98C0D8-19A6-4F1A-A8DB-93B126760A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D98C0D8-19A6-4F1A-A8DB-93B126760A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D98C0D8-19A6-4F1A-A8DB-93B126760A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C58D07DF-A9AB-4B98-BA96-C2EDF1256F6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58D07DF-A9AB-4B98-BA96-C2EDF1256F6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C58D07DF-A9AB-4B98-BA96-C2EDF1256F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C58D07DF-A9AB-4B98-BA96-C2EDF1256F6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
